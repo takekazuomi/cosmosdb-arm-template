@@ -3,7 +3,7 @@
     "contentVersion": "1.0.0.0",
     "parameters": {
         "databaseAccountName": {
-            "defaultValue": "kinmugicdbg01",
+            "defaultValue": null,
             "type": "string"
         },
         "databasePassword": {
