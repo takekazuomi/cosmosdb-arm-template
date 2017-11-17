@@ -16,6 +16,9 @@
         },
         "maxIntervalInSeconds": {
             "value": 5
+        },
+        "kind" : {
+            "value": "GlobalDocumentDB"
         }
     }
 }

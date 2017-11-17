@@ -1,7 +1,9 @@
 Param (
     [string]$Name,
     [string]$Password,   
-    [string]$Location
+    [string]$Location,
+    [string]$Experience="DocumentDB",
+    [string]$Kind="GlobalDocumentDB"
 )
 
 $baseDir = (Split-Path -Parent $MyInvocation.MyCommand.Path)
@@ -13,5 +15,7 @@ $ipRangeFilter = (Invoke-WebRequest "http://inet-ip.info" -UserAgent "curl").Con
 New-AzureRmResourceGroupDeployment -Name "$Name-$(Get-Date -f "ddHHmm")"  -ResourceGroupName $Name -TemplateFile "$baseDir\azuredeploy.json" `
     -databaseAccountName $Name `
     -databasePassword ($Password | ConvertTo-SecureString -AsPlainText -Force) `
-    -ipRangeFilter $ipRangeFilter
-
+    -ipRangeFilter $ipRangeFilter `
+    -experience $Experience `
+    -kind $Kind
+    

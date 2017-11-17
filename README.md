@@ -15,14 +15,21 @@ Cosmos DB ARM template was almost as same as Document DB. The only difference is
 ## Howto deploy
 
 ```
-./deploy.ps1 -Name <databasename> -Location "japaneast" -Password <somepassword>
+./deploy.ps1 -Name <databasename> -Location <location> -Password <somepassword>
 
 ```
 
+## create mongodb api account
+
+```
+./deploy.ps1 -Name <databasename> -Location <location> -Password <somepassword> -Experience MongoDB -Kind MongoDB
+```
+
+
 ## Update
 
-* 2017/7/11 Add firewall settings. Only configure ip filter. "Allow access to Azure Portal" is Off.
-
+* 2017/7/11 Add firewall settings. Only configure ip filter. Setting ipRangeFilter disables "Allow access to Azure Portal".
+* 2017/11/17 `Microsoft.DocumentDB/databaseAccounts template reference <https://docs.microsoft.com/en-us/azure/templates/microsoft.documentdb/databaseaccounts>`_
 
 ## Note
 

@@ -16,7 +16,8 @@
             "allowedValues": [
                 "DocumentDB",
                 "Graph",
-                "Table"
+                "Table",
+                "MongoDB"
             ]
         },
         "consistencyLevel": {
@@ -53,6 +54,18 @@
              "metadata": {
                 "description": "IP addresses/ranges must be comma separated and must not contain any spaces"
             }           
+        },
+        "kind": {
+            "type": "string",
+            "defaultValue": "GlobalDocumentDB",
+            "allowedValues": [
+                "GlobalDocumentDB",
+                "MongoDB",
+                "Parse"
+            ],
+            "metadata": {
+                "description": "Indicates the type of database account. This can only be set at database account creation. - GlobalDocumentDB, MongoDB, Parse"
+            }           
         }
     },
     "variables": {
@@ -61,7 +74,7 @@
     "resources": [
         {
             "type": "Microsoft.DocumentDB/databaseAccounts",
-            "kind": "GlobalDocumentDB",
+            "kind": "[parameters('kind')]",
             "name": "[parameters('databaseAccountName')]",
             "apiVersion": "2015-04-08",
             "location": "[resourceGroup().location]",
